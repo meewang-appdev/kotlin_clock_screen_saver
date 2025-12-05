@@ -1,0 +1,103 @@
+# IDE
+.idea/
+.project
+.classpath
+.cproject
+.settings/
+
+# Gradle
+.gradle/
+build/
+app/build/
+local.properties
+*.hprof
+
+# Keystore
+*.jks
+*.keystore
+
+# Google services
+app/google-services.json
+
+# Local native builds
+app/src/main/jniLibs/
+*.so
+*.swp
+*~
+app/.cxx/
+
+# Emulator
+.idea/avd/
+.idea/deployment/
+.idea/libraries/
+.idea/modules.xml
+.idea/runConfigurations/
+.idea/workspace.xml
+
+# Captures
+captures/
+
+# Other
+*.iml
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*~
+*.DS_Store
+*.orig
+.cxx/
+*.apk
+*.aab
+
+# Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.metadata
+.pub-cache/
+/ios/Flutter/App.framework
+/ios/Flutter/flutter_assets/
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/Debug.xcconfig
+/ios/Flutter/Release.xcconfig
+/ios/Pods/
+/ios/.symlinks/
+/ios/Runner/GeneratedPluginRegistrant.h
+/ios/Runner/GeneratedPluginRegistrant.m
+
+# VSCode
+.vscode/
+
+# Intellij
+*.iws
+*.ipr
+*.iml
+out/
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Android Studio
+/captures/
+.externalNativeBuild
+.idea/
+android/app/build
+android/.gradle
+android/build
+
+# Mac
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
