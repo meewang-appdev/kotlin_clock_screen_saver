@@ -1,3 +1,5 @@
+<img width="540" height="1080" alt="Screenshot_20251205_165015" src="https://github.com/user-attachments/assets/b5f5c66a-30ce-47a0-868f-914fc81dcd30" />
+
 # Repository Guidelines
 
 ## 프로젝트 구조
