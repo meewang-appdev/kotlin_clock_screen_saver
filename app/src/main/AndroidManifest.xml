@@ -1,0 +1,38 @@
+﻿<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.BIND_DREAM_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="false"
+        android:label="Clock Screen Saver"
+        android:supportsRtl="true">
+
+        <activity
+            android:name="com.example.clockscreensaver.ui.settings.SettingsActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.example.clockscreensaver.ui.clock.FullscreenPreviewActivity"
+            android:exported="false" />
+
+        <service
+            android:name="com.example.clockscreensaver.dream.ClockDreamService"
+            android:exported="true"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.dreams.DreamService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.dream"
+                android:resource="@xml/clock_dream_info" />
+        </service>
+
+    </application>
+</manifest>
