@@ -7,6 +7,7 @@
     <application
         android:allowBackup="false"
         android:label="Astell&amp;Kern Clock"
+        android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true">
 
         <activity
