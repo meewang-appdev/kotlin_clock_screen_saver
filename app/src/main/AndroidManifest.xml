@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="false"
-        android:label="Clock Screen Saver"
+        android:label="Astell&amp;Kern Clock"
         android:supportsRtl="true">
 
         <activity

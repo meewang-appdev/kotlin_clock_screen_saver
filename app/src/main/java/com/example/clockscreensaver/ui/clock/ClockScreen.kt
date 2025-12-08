@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -27,6 +28,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.clockscreensaver.data.UserPreferences
 import com.example.clockscreensaver.data.UserPreferencesRepository
@@ -42,7 +45,10 @@ import java.time.format.DateTimeFormatter
 import kotlin.random.Random
 
 @Composable
-fun ClockScreen(prefsOverride: UserPreferences? = null) {
+fun ClockScreen(
+    prefsOverride: UserPreferences? = null,
+    applyInsets: Boolean = true
+) {
     val context = LocalContext.current.applicationContext
     val repository = remember { UserPreferencesRepository(context) }
     val prefsFromFlow by repository.preferencesFlow.collectAsState(initial = UserPreferences())
@@ -92,7 +98,8 @@ fun ClockScreen(prefsOverride: UserPreferences? = null) {
         onSwipeStyleChange = { delta ->
             clockStyle = clockStyle.shift(delta)
             scope.launch { styleController.setStyle(clockStyle) }
-        }
+        },
+        applyInsets = applyInsets
     )
 }
 
@@ -103,29 +110,33 @@ private fun ClockScreenContent(
     offsetX: Float,
     offsetY: Float,
     clockStyle: ClockStyle,
-    onSwipeStyleChange: (Int) -> Unit
+    onSwipeStyleChange: (Int) -> Unit,
+    applyInsets: Boolean
 ) {
     val textColor = prefs.textColorHex.toColorOrNull() ?: TextPrimary
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Black)
-            .pointerInput(clockStyle) {
-                var totalDrag = 0f
-                detectHorizontalDragGestures(
-                    onDragEnd = {
-                        val threshold = 24f
-                        when {
-                            totalDrag > threshold -> onSwipeStyleChange(-1)
-                            totalDrag < -threshold -> onSwipeStyleChange(1)
-                        }
-                        totalDrag = 0f
+    val baseModifier = Modifier
+        .fillMaxSize()
+        .background(Black)
+        .then(if (applyInsets) Modifier.systemBarsPadding() else Modifier)
+        .pointerInput(clockStyle) {
+            var totalDrag = 0f
+            detectHorizontalDragGestures(
+                onDragEnd = {
+                    val threshold = 24f
+                    when {
+                        totalDrag > threshold -> onSwipeStyleChange(-1)
+                        totalDrag < -threshold -> onSwipeStyleChange(1)
                     }
-                ) { _, dragAmount ->
-                    totalDrag += dragAmount
+                    totalDrag = 0f
                 }
-            },
+            ) { _, dragAmount ->
+                totalDrag += dragAmount
+            }
+        }
+
+    Box(
+        modifier = baseModifier,
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -150,9 +161,14 @@ private fun BoxScope.BasicClock(timeText: String, color: Color, offsetX: Float, 
         text = timeText,
         color = color,
         style = androidx.compose.material3.MaterialTheme.typography.displayLarge,
+        maxLines = 1,
+        softWrap = false,
+        overflow = TextOverflow.Clip,
+        textAlign = TextAlign.Center,
         modifier = Modifier
             .align(Alignment.Center)
             .offset(x = offsetX.dp, y = offsetY.dp)
+            .padding(horizontal = 8.dp)
     )
 }
 
@@ -172,12 +188,18 @@ private fun BoxScope.SplitClock(timeText: String, color: Color, offsetX: Float, 
         Text(
             text = hour,
             color = color,
-            style = androidx.compose.material3.MaterialTheme.typography.displayLarge
+            style = androidx.compose.material3.MaterialTheme.typography.displayLarge,
+            maxLines = 1,
+            softWrap = false,
+            overflow = TextOverflow.Clip
         )
         Text(
             text = minute,
             color = color.copy(alpha = 0.8f),
-            style = androidx.compose.material3.MaterialTheme.typography.displayLarge
+            style = androidx.compose.material3.MaterialTheme.typography.displayLarge,
+            maxLines = 1,
+            softWrap = false,
+            overflow = TextOverflow.Clip
         )
     }
 }
@@ -195,7 +217,11 @@ private fun BoxScope.MinimalClock(timeText: String, color: Color, offsetX: Float
             color = color.copy(alpha = 0.9f),
             style = androidx.compose.material3.MaterialTheme.typography.displayLarge.copy(
                 fontWeight = FontWeight.W300
-            )
+            ),
+            maxLines = 1,
+            softWrap = false,
+            overflow = TextOverflow.Clip,
+            textAlign = TextAlign.Center
         )
         Text(
             text = "Swipe left/right to change style",
