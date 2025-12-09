@@ -59,10 +59,10 @@ class UserPreferencesRepository(private val context: Context) {
 
     private fun Preferences.toUserPreferences(): UserPreferences = UserPreferences(
         is24Hour = this[Keys.IS_24H] ?: true,
-        textColorHex = this[Keys.TEXT_COLOR] ?: "#E0E0E0",
+        textColorHex = this[Keys.TEXT_COLOR] ?: "#B08D57",
         fontStyle = this[Keys.FONT_STYLE] ?: "default",
         brightnessLevel = this[Keys.BRIGHTNESS] ?: 70,
         burnInProtection = this[Keys.BURN_IN] ?: true,
-        clockStyle = this[Keys.CLOCK_STYLE] ?: "basic"
+        clockStyle = this[Keys.CLOCK_STYLE] ?: "minimal"
     )
 }
