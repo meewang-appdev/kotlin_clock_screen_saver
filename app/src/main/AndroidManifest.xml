@@ -8,7 +8,8 @@
         android:allowBackup="false"
         android:label="Astell&amp;Kern Clock"
         android:icon="@mipmap/ic_launcher"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ScreenSaver">
 
         <activity
             android:name="com.example.clockscreensaver.ui.settings.SettingsActivity"
