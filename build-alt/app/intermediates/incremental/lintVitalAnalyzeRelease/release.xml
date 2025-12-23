@@ -1,0 +1,32 @@
+<variant
+    name="release"
+    useSupportLibraryVectorDrawables="true"
+    package="com.example.clockscreensaver"
+    minSdkVersion="26"
+    targetSdkVersion="35"
+    mergedManifest="C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\intermediates\merged_manifest\release\processReleaseMainManifest\AndroidManifest.xml"
+    proguardFiles="C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.5.0;proguard-rules.pro"
+    partialResultsDir="C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\intermediates\lint_vital_partial_results\release\lintVitalAnalyzeRelease\out"
+    desugaredMethodsFiles="C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\fd4080f9f3c266f2b66d32bf3171f50d\transformed\D8BackportedDesugaredMethods.txt">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="src\main\AndroidManifest.xml"
+        javaDirectories="src\main\java;src\release\java;src\main\kotlin;src\release\kotlin"
+        resDirectories="src\main\res;src\release\res"
+        assetsDirectories="src\main\assets;src\release\assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <artifact
+      classOutputs="C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\intermediates\javac\release\compileReleaseJavaWithJavac\classes;C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\tmp\kotlin-classes\release;C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\kotlinToolingMetadata;C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\intermediates\compile_and_runtime_not_namespaced_r_class_jar\release\processReleaseResources\R.jar"
+      type="MAIN"
+      applicationId="com.example.clockscreensaver"
+      generatedSourceFolders="C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\generated\ap_generated_sources\release\out"
+      generatedResourceFolders="C:\Users\Hwan_01\projects\android_clock_saver\build-alt\app\generated\res\resValues\release"
+      desugaredMethodsFiles="C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\fd4080f9f3c266f2b66d32bf3171f50d\transformed\D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>

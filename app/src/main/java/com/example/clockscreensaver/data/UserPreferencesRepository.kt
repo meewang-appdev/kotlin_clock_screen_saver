@@ -24,6 +24,7 @@ class UserPreferencesRepository(private val context: Context) {
         val BRIGHTNESS = intPreferencesKey("brightness_level")
         val BURN_IN = booleanPreferencesKey("burn_in_protection")
         val CLOCK_STYLE = stringPreferencesKey("clock_style")
+        val TOUCH_EXIT_GUARD = booleanPreferencesKey("touch_exit_guard_enabled")
     }
 
     val preferencesFlow: Flow<UserPreferences> = context.userPreferencesDataStore.data
@@ -53,6 +54,10 @@ class UserPreferencesRepository(private val context: Context) {
         update { it[Keys.CLOCK_STYLE] = style }
     }
 
+    suspend fun updateTouchExitGuard(enabled: Boolean) {
+        update { it[Keys.TOUCH_EXIT_GUARD] = enabled }
+    }
+
     private suspend fun update(block: (MutablePreferences) -> Unit) {
         context.userPreferencesDataStore.edit { prefs -> block(prefs) }
     }
@@ -63,6 +68,7 @@ class UserPreferencesRepository(private val context: Context) {
         fontStyle = this[Keys.FONT_STYLE] ?: "default",
         brightnessLevel = this[Keys.BRIGHTNESS] ?: 70,
         burnInProtection = this[Keys.BURN_IN] ?: true,
-        clockStyle = this[Keys.CLOCK_STYLE] ?: "minimal"
+        clockStyle = this[Keys.CLOCK_STYLE] ?: "minimal",
+        touchExitGuardEnabled = this[Keys.TOUCH_EXIT_GUARD] ?: false
     )
 }

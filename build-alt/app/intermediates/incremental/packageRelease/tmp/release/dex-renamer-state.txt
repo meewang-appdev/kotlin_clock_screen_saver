@@ -1,0 +1,7 @@
+#Tue Dec 23 15:12:03 KST 2025
+base.0=C\:\\Users\\Hwan_01\\projects\\android_clock_saver\\build-alt\\app\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+base.1=C\:\\Users\\Hwan_01\\projects\\android_clock_saver\\build-alt\\app\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex
+path.0=classes.dex
+path.1=classes2.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex

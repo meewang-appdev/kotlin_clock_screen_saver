@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <string name="app_name">AK Clock Screen Saver</string>
+    <style name="Theme.ScreenSaver" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSplashScreenBackground">@android:color/transparent</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@android:color/transparent</item>
+
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+</resources>

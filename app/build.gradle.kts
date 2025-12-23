@@ -1,6 +1,10 @@
-﻿plugins {
+plugins {
     id("com.android.application")
     kotlin("android")
+}
+
+providers.gradleProperty("altBuildDir").orNull?.let { altBuildDir ->
+    layout.buildDirectory.set(file(altBuildDir))
 }
 
 android {

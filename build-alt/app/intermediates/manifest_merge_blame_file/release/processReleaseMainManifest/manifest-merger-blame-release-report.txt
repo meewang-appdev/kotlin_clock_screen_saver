@@ -1,0 +1,157 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.clockscreensaver"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.BIND_DREAM_SERVICE" />
+11-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:4:5-5:47
+11-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:4:22-74
+12
+13    <permission
+13-->[androidx.core:core:1.15.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\c38bbaa2757fe9a08c7147ab9c5054b2\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+14        android:name="com.example.clockscreensaver.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.15.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\c38bbaa2757fe9a08c7147ab9c5054b2\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.15.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\c38bbaa2757fe9a08c7147ab9c5054b2\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.example.clockscreensaver.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.15.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\c38bbaa2757fe9a08c7147ab9c5054b2\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.15.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\c38bbaa2757fe9a08c7147ab9c5054b2\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:7:5-40:19
+20        android:allowBackup="false"
+20-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:8:9-36
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.15.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\c38bbaa2757fe9a08c7147ab9c5054b2\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
+22        android:extractNativeLibs="false"
+23        android:icon="@mipmap/ic_launcher"
+23-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:10:9-43
+24        android:label="Astell&amp;Kern Clock"
+24-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:9:9-46
+25        android:supportsRtl="true"
+25-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:11:9-35
+26        android:theme="@style/Theme.ScreenSaver" >
+26-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:12:9-49
+27        <activity
+27-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:14:9-22:20
+28            android:name="com.example.clockscreensaver.ui.settings.SettingsActivity"
+28-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:15:13-85
+29            android:exported="true"
+29-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:16:13-36
+30            android:launchMode="singleTask" >
+30-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:17:13-44
+31            <intent-filter>
+31-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:18:13-21:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:19:17-69
+32-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:19:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:20:17-77
+34-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:20:27-74
+35            </intent-filter>
+36        </activity>
+37        <activity
+37-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:24:9-26:40
+38            android:name="com.example.clockscreensaver.ui.clock.FullscreenPreviewActivity"
+38-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:25:13-91
+39            android:exported="false" />
+39-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:26:13-37
+40
+41        <service
+41-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:28:9-38:19
+42            android:name="com.example.clockscreensaver.dream.ClockDreamService"
+42-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:29:13-80
+43            android:exported="true"
+43-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:30:13-36
+44            android:permission="android.permission.BIND_DREAM_SERVICE" >
+44-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:31:13-71
+45            <intent-filter>
+45-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:32:13-34:29
+46                <action android:name="android.service.dreams.DreamService" />
+46-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:33:17-78
+46-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:33:25-75
+47            </intent-filter>
+48
+49            <meta-data
+49-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:35:13-37:60
+50                android:name="android.service.dream"
+50-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:36:17-53
+51                android:resource="@xml/clock_dream_info" />
+51-->C:\Users\Hwan_01\projects\android_clock_saver\app\src\main\AndroidManifest.xml:37:17-57
+52        </service>
+53
+54        <provider
+54-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\33d1a5d1f943a632bd7d05f094a1509f\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+55            android:name="androidx.startup.InitializationProvider"
+55-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\33d1a5d1f943a632bd7d05f094a1509f\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+56            android:authorities="com.example.clockscreensaver.androidx-startup"
+56-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\33d1a5d1f943a632bd7d05f094a1509f\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+57            android:exported="false" >
+57-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\33d1a5d1f943a632bd7d05f094a1509f\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+58            <meta-data
+58-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\33d1a5d1f943a632bd7d05f094a1509f\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\33d1a5d1f943a632bd7d05f094a1509f\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+60                android:value="androidx.startup" />
+60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\33d1a5d1f943a632bd7d05f094a1509f\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+61            <meta-data
+61-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\2ea1e6ff21663562cdf1048adc76620c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\2ea1e6ff21663562cdf1048adc76620c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+63                android:value="androidx.startup" />
+63-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\2ea1e6ff21663562cdf1048adc76620c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+64            <meta-data
+64-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+65-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+66                android:value="androidx.startup" />
+66-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+67        </provider>
+68
+69        <receiver
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+70            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+71            android:directBootAware="false"
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+72            android:enabled="true"
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+73            android:exported="true"
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+74            android:permission="android.permission.DUMP" >
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+75            <intent-filter>
+75-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+76                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+77            </intent-filter>
+78            <intent-filter>
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+79                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+80            </intent-filter>
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+82                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+85                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Hwan_01\.gradle\caches\9.0-milestone-1\transforms\75ca0ac87eb2b77d53533c27b1e95049\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+86            </intent-filter>
+87        </receiver>
+88    </application>
+89
+90</manifest>

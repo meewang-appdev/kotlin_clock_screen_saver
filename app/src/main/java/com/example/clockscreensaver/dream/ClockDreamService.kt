@@ -11,14 +11,20 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.lifecycle.setViewTreeViewModelStoreOwner
 import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
+import com.example.clockscreensaver.data.UserPreferencesRepository
 import com.example.clockscreensaver.ui.clock.ClockScreen
 import com.example.clockscreensaver.ui.theme.ClockSaverTheme
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import kotlin.math.abs
 
 class ClockDreamService : DreamService(), LifecycleOwner, SavedStateRegistryOwner, ViewModelStoreOwner {
@@ -26,6 +32,7 @@ class ClockDreamService : DreamService(), LifecycleOwner, SavedStateRegistryOwne
     private val lifecycleRegistry = LifecycleRegistry(this)
     private val internalViewModelStore = ViewModelStore()
     private val savedStateRegistryController = SavedStateRegistryController.create(this)
+    private val preferencesRepository by lazy { UserPreferencesRepository(applicationContext) }
     private val composeView by lazy {
         ComposeView(this).apply {
             setViewTreeLifecycleOwner(this@ClockDreamService)
@@ -33,6 +40,8 @@ class ClockDreamService : DreamService(), LifecycleOwner, SavedStateRegistryOwne
             setViewTreeViewModelStoreOwner(this@ClockDreamService)
         }
     }
+    private var preferencesJob: Job? = null
+    private var touchExitGuardEnabled: Boolean = false
 
     override val lifecycle: Lifecycle
         get() = lifecycleRegistry
@@ -56,18 +65,29 @@ class ClockDreamService : DreamService(), LifecycleOwner, SavedStateRegistryOwne
         super.onDreamingStarted()
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
+        preferencesJob?.cancel()
+        preferencesJob = lifecycleScope.launch {
+            preferencesRepository.preferencesFlow
+                .map { it.touchExitGuardEnabled }
+                .distinctUntilChanged()
+                .collect { touchExitGuardEnabled = it }
+        }
         composeView.setContent { DreamContent() }
         setContentView(composeView)
     }
 
     override fun onDreamingStopped() {
         super.onDreamingStopped()
+        preferencesJob?.cancel()
+        preferencesJob = null
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE)
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP)
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        preferencesJob?.cancel()
+        preferencesJob = null
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         viewModelStore.clear()
     }
@@ -91,6 +111,10 @@ class ClockDreamService : DreamService(), LifecycleOwner, SavedStateRegistryOwne
                 }
                 // Tap: treat as exit.
                 if (absDx < tapSlopPx && absDy < tapSlopPx && dt < tapTimeMs) {
+                    if (touchExitGuardEnabled) {
+                        super.dispatchTouchEvent(ev)
+                        return true
+                    }
                     finish()
                     return true
                 }

@@ -6,5 +6,6 @@ data class UserPreferences(
     val fontStyle: String = "default",
     val brightnessLevel: Int = 70,
     val burnInProtection: Boolean = true,
-    val clockStyle: String = "minimal"
+    val clockStyle: String = "minimal",
+    val touchExitGuardEnabled: Boolean = false
 )

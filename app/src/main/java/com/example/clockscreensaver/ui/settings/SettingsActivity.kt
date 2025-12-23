@@ -31,7 +31,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -92,7 +91,6 @@ private fun SettingsScreen(repository: UserPreferencesRepository) {
         ClockStyle.SPLIT,
         ClockStyle.MINIMAL
     )
-    val touchGuardEnabled = remember { mutableStateOf(true) }
     val backgroundGradient = Brush.verticalGradient(
         colors = listOf(Color(0xFF0B0B0F), Color(0xFF0F111A), Color(0xFF0B0B0F))
     )
@@ -237,8 +235,10 @@ private fun SettingsScreen(repository: UserPreferencesRepository) {
                 subtitle = "실험적 옵션 · Dream 종료 탭 무시",
                 trailing = {
                     Switch(
-                        checked = touchGuardEnabled.value,
-                        onCheckedChange = { touchGuardEnabled.value = it }
+                        checked = prefs.touchExitGuardEnabled,
+                        onCheckedChange = { enabled ->
+                            scope.launch { repository.updateTouchExitGuard(enabled) }
+                        }
                     )
                 }
             )
