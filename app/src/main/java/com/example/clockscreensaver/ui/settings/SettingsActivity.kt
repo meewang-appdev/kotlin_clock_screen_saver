@@ -39,9 +39,14 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import com.example.clockscreensaver.R
 import com.example.clockscreensaver.data.UserPreferences
 import com.example.clockscreensaver.data.UserPreferencesRepository
 import com.example.clockscreensaver.ui.clock.ClockStyle
@@ -105,8 +110,17 @@ private fun SettingsScreen(repository: UserPreferencesRepository) {
             verticalArrangement = Arrangement.spacedBy(6.dp),
             modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 6.dp)
         ) {
+            val appName = stringResource(R.string.app_name)
             Text(
-                "Clock Screen Saver",
+                text = buildAnnotatedString {
+                    val prefix = "AK"
+                    if (appName.startsWith(prefix)) {
+                        withStyle(SpanStyle(color = TextRed)) { append(prefix) }
+                        append(appName.removePrefix(prefix))
+                    } else {
+                        append(appName)
+                    }
+                },
                 style = MaterialTheme.typography.titleMedium,
                 color = TextPrimary,
                 fontWeight = FontWeight.Bold
